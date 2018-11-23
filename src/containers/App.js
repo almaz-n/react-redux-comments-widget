@@ -1,12 +1,19 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import AddComment from '../components/add-comment';
-import { handleAuthor,handleComment } from '../actions/form'
+import { handleAuthor, handleComment } from '../actions/form'
+import { addComment } from "../actions/comments" 
 
 import '../App.css'
 
 const App = (props) => {
-  const { comments, form, handleAuthor, handleComment } = props;
+  const { 
+    comments, 
+    form, 
+    handleAuthor, 
+    handleComment,
+    addComment
+  } = props;
 
   return ( 
     <div className="App">
@@ -19,6 +26,7 @@ const App = (props) => {
           comment={form.comment}
           handleAuthor={handleAuthor}
           handleComment={handleComment}
+          addComment={addComment}
         />
       </div>
     </div>
@@ -27,7 +35,6 @@ const App = (props) => {
 
 // передача данных из store в App при помощи connect
 const mapStateToProps = store => {
-  console.log(store.form);
   return {
     comments: store.comments,
     form: store.form
@@ -37,7 +44,8 @@ const mapStateToProps = store => {
 const mapDispatchToProps = dispatch => {
   return {
     handleAuthor: (ev) => dispatch(handleAuthor(ev)),
-    handleComment: (ev) => dispatch(handleComment(ev))
+    handleComment: (ev) => dispatch(handleComment(ev)),
+    addComment: (comment) => dispatch (addComment(comment))  
   }
 }
 

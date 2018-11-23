@@ -13,4 +13,4 @@ export function handleComment(ev) {
         type: 'CHANGE_COMMENT',
         newVal
     }
-  }
+}
