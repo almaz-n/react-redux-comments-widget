@@ -4,3 +4,16 @@ export function addComment(comment) {
         comment
     }
 }
+
+export function deleteComment(id) {
+    return {
+        type: 'DELETE_COMMENT',
+        id
+    }
+}
+
+export function getComment() {
+    return {
+        type: 'GET_COMMENT'
+    }
+}

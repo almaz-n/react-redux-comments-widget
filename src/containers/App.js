@@ -1,8 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import AddComment from '../components/add-comment';
+import CommentList from '../components/comments-list';
 import { handleAuthor, handleComment } from '../actions/form'
-import { addComment } from "../actions/comments" 
+import { addComment,deleteComment,getComment } from "../actions/comments" 
 
 import '../App.css'
 
@@ -28,6 +29,11 @@ const App = (props) => {
           handleComment={handleComment}
           addComment={addComment}
         />
+        <CommentList 
+            commentList={comments}
+            deleteComment={deleteComment}
+            getComment={getComment}
+        />
       </div>
     </div>
   )
@@ -45,7 +51,9 @@ const mapDispatchToProps = dispatch => {
   return {
     handleAuthor: (ev) => dispatch(handleAuthor(ev)),
     handleComment: (ev) => dispatch(handleComment(ev)),
-    addComment: (comment) => dispatch (addComment(comment))  
+    addComment: (comment) => dispatch (addComment(comment)),
+    deleteComment: id => dispatch(deleteComment(id)),
+    getComment: () => dispatch(getComment())
   }
 }
 

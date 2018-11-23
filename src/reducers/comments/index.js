@@ -5,8 +5,13 @@ const initialState = {
 
 const commentsReducer = (state = initialState, action) => {
     switch (action.type) {
+        case 'GET_COMMENTS':  
+            return state; 
         case 'ADD_COMMENT':  
-            return { ...state,comments:[...state.comments]};  
+            return { ...state,comments:[action.comment,...state.comments]};  
+        case 'DELETE_COMMENT':     
+            const updateList = state.comments.filter(comment => comment.id !== action.id);
+            return updateList; 
         default: 
             return  state;   
                 

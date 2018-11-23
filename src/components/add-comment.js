@@ -30,7 +30,7 @@ const AddComment = (props) => {
         // проверяем на заполненность полей автор комментарий
         if(authorVal && commentVal) {
             if(validateInput(props.author) && validateInput(props.comment)) {
-                 return true;
+                return true;
             } else {
                 alert('поля содержат недопустимые символы');
             }     
