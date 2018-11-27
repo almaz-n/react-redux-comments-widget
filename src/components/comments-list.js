@@ -7,8 +7,10 @@ const CommentList = (props) => {
     if(commentList.comments.length) {
         newsTemplate = commentList.comments.map( (comment) => {
             return (
-                <li className="articles-list__item" key={comment.id}>        
-                    <p><b>Автор: {comment.author}</b></p>
+                <li className="articles-list__item" key={comment.id}>         
+                    <p>
+                        <b>Автор: {comment.author}</b>
+                    </p>
                     <p>Комментарий: {comment.comment}</p>
                     <p>Дата: {comment.date}</p>
                     <button 

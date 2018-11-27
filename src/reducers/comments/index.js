@@ -9,9 +9,11 @@ const commentsReducer = (state = initialState, action) => {
             return state; 
         case 'ADD_COMMENT':  
             return { ...state,comments:[action.comment,...state.comments]};  
-        case 'DELETE_COMMENT':     
-            const updateList = state.comments.filter(comment => comment.id !== action.id);
-            return updateList; 
+        case 'DELETE_COMMENT': 
+            const updateList = {
+                comments: state.comments.filter(comment => comment.id !== action.id)
+            }
+            return updateList;
         default: 
             return  state;   
                 

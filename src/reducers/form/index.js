@@ -1,7 +1,7 @@
 
 const initialState = {   
-    author: 'asd',
-    comment: 'asd'
+    author: '',
+    comment: ''
 }
 
 const formReducer = (state = initialState, action) => {

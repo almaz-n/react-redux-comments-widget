@@ -13,13 +13,14 @@ const App = (props) => {
     form, 
     handleAuthor, 
     handleComment,
-    addComment
+    addComment,
+    deleteComment
   } = props;
 
   return ( 
     <div className="App">
       <header className="App-header">
-        <h1 className="App-title">Redux</h1>
+        <h1 className="App-title">React + Redux</h1>
       </header>
       <div className="form-box">
         <AddComment
@@ -32,7 +33,6 @@ const App = (props) => {
         <CommentList 
             commentList={comments}
             deleteComment={deleteComment}
-            getComment={getComment}
         />
       </div>
     </div>
@@ -52,7 +52,7 @@ const mapDispatchToProps = dispatch => {
     handleAuthor: (ev) => dispatch(handleAuthor(ev)),
     handleComment: (ev) => dispatch(handleComment(ev)),
     addComment: (comment) => dispatch (addComment(comment)),
-    deleteComment: id => dispatch(deleteComment(id)),
+    deleteComment: (id) => dispatch(deleteComment(id)),
     getComment: () => dispatch(getComment())
   }
 }
